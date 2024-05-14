@@ -96,8 +96,8 @@ const Experience = () => {
     },
     {
       title: "portfolio",
-      liveLink: "",
-      githubLink: "",
+      liveLink: "#",
+      githubLink: "https://github.com/tfudoinkebs/Portfolio",
       technologies: "react.js, tailwind",
     },
   ];

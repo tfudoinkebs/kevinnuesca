@@ -3,7 +3,8 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Projects from "./pages/projects";
 import Contacts from "./pages/contacts";
-const home = () => {
+
+const LandingPage = () => {
   return (
     <div>
       <Home />
@@ -14,4 +15,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default LandingPage;

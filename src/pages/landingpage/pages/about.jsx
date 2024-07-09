@@ -47,6 +47,16 @@ const about = () => {
           and playing random games. i still have much more to learn, and i'm
           always open to exploring new opportunities."
         </p>
+        <BlurIn
+          word="Techstack"
+          className="mt-8 font-bold text-black dark:text-white"
+          duration={2}
+        />
+        <TypingAnimation
+          className="text-base font-normal text-black dark:text-white"
+          text="here are the technologies i'm familiar with!"
+          duration={50}
+        />
       </div>
 
       <IconCloudWrapper slugs={slugs} />

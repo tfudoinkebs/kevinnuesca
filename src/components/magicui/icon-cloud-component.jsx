@@ -3,7 +3,7 @@ import IconCloud from "@/components/magicui/icon-cloud";
 
 const IconCloudWrapper = ({ slugs }) => {
   return (
-    <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden px-20 pb-20 pt-8">
+    <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden px-20 pt-8">
       <IconCloud iconSlugs={slugs} />
     </div>
   );

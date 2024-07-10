@@ -7,7 +7,7 @@ const Header = () => {
     <div className="fixed z-50 flex w-screen border-b p-4 backdrop-blur-xl">
       <div className="flex w-full justify-between">
         <button>logo</button>
-        <div className="flex gap-4">
+        <div className="hidden gap-4 md:block">
           <Button variant="ghost">Home</Button>
           <Button variant="ghost">About</Button>
           <Button variant="ghost">Projects</Button>

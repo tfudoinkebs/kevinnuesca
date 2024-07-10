@@ -9,7 +9,7 @@ const App = () => {
       <div className="flex min-h-screen flex-col justify-between font-mono">
         <Header />
         <Router />
-        <Footer className />
+        {/* <Footer /> */}
       </div>
     </ThemeProvider>
   );

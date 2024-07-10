@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import ShineBorder from "@/components/magicui/shine-border";
 
 export default function Marquee({
   className,

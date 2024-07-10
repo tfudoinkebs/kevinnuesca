@@ -8,7 +8,7 @@ const Ripple = React.memo(function Ripple({
   return (
     <div className="absolute inset-0 flex items-center justify-center">
       {Array.from({ length: numCircles }, (_, i) => {
-        const size = mainCircleSize + i * 150;
+        const size = mainCircleSize + i * 250;
         const opacity = mainCircleOpacity - i * 0.03;
         const animationDelay = `${i * 0.06}s`;
         const borderStyle = i === numCircles - 1 ? "dashed" : "solid";
@@ -17,7 +17,7 @@ const Ripple = React.memo(function Ripple({
         return (
           <div
             key={i}
-            className={`animate-ripple absolute left-1/2 top-1/2 translate-x-1/2 translate-y-1/2 rounded-full border bg-teal-500/5 shadow-xl [--i:${i}]`}
+            className={`absolute left-1/2 top-1/2 translate-x-1/2 translate-y-1/2 animate-ripple rounded-full border bg-teal-500/5 shadow-xl [--i:${i}]`}
             style={{
               width: `${size}px`,
               height: `${size}px`,

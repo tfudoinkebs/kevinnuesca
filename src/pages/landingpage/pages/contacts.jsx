@@ -10,9 +10,23 @@ import BlurIn from "@/components/magicui/blur-in";
 import BlurFade from "@/components/magicui/blur-fade";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const Contacts = () => {
   const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleChange = (event) => {
     const inputText = event.target.value;
@@ -21,8 +35,42 @@ const Contacts = () => {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const payload = {
+      content: `New message from ${name} (${email}): ${message}`,
+    };
+
+    const webhookUrl =
+      "https://discord.com/api/webhooks/1260888231424167956/NeZ4yrGIELUqTwA7vYU83MD8_ptAEci5jpSBmsaA3iV4gtIndYebpX0u5TbmD8zE4Z3K";
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setDialogOpen(true);
+        // Clear the form fields
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Error sending message.");
+    }
+  };
+
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-start overflow-hidden bg-background px-8">
+    <div className="relative flex h-full w-full flex-col items-center overflow-hidden bg-background px-8">
       <BlurFade
         delay={0.25}
         inView
@@ -41,19 +89,30 @@ const Contacts = () => {
 
       <Card className="z-10 mb-20 grid w-full grid-cols-1 border-2 bg-background p-4 px-4 md:w-3/5 lg:grid-cols-2">
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">
                   Name <span className="text-red-500">*</span>
                 </Label>
-                <Input id="name" placeholder="Name" />
+                <Input
+                  id="name"
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
               <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="email">
                   Email <span className="text-red-500">*</span>
                 </Label>
-                <Input type="email" id="email" placeholder="Email" />
+                <Input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="grid w-full gap-1.5">
                 <Label htmlFor="message-2">
@@ -70,16 +129,35 @@ const Contacts = () => {
                 </p>
               </div>
             </div>
+            <CardFooter className="mt-4 flex justify-end">
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    type="submit"
+                    variant="send"
+                    size="send"
+                    className="flex gap-2 text-sm font-bold text-white"
+                    disabled={(!message, !name, !email)}
+                  >
+                    Send <IoSend />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Message Sent</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Your message has been successfully sent!
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogAction onClick={() => setDialogOpen(false)}>
+                      OK
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </CardFooter>
           </form>
-          <CardFooter className="mt-4 flex justify-end">
-            <Button
-              variant="send"
-              size="send"
-              className="flex gap-2 text-sm font-bold text-white"
-            >
-              Send <IoSend />
-            </Button>
-          </CardFooter>
         </CardContent>
 
         <CardContent>

@@ -41,7 +41,7 @@ const projects = () => {
                   />
                 </div>
 
-                <div className="z-20 flex-col px-4">
+                <div className="z-20 mb-2 flex-col px-4">
                   <CardHeader>
                     <CardTitle>Adventura 360</CardTitle>
                     <CardDescription className="text-muted-foreground">
@@ -56,19 +56,27 @@ const projects = () => {
 
                   <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
                     <button
-                      href="https://example.com"
-                      target="_blank"
-                      className="flex w-full items-center gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open(
+                          "https://adventura360.kabsu.me/",
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                     >
                       live website <FaLink />
                     </button>
 
                     <button
-                      href="https://github.com/yourusername/yourproject"
-                      target="_blank"
-                      className="flex w-full items-center justify-end gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center justify-end gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open(
+                          "https://github.com/marksapon/Adventura360",
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                     >
                       github repo <ImGithub />
                     </button>
@@ -90,7 +98,7 @@ const projects = () => {
                     alt=""
                   />
                 </div>
-                <div className="z-20 flex-col px-4">
+                <div className="z-20 mb-2 flex-col px-4">
                   <CardHeader>
                     <CardTitle>kabsu.me</CardTitle>
                     <CardDescription className="text-muted-foreground">
@@ -105,19 +113,27 @@ const projects = () => {
 
                   <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
                     <button
-                      href="https://example.com"
-                      target="_blank"
-                      className="flex w-full items-center gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open(
+                          "https://kabsu.me/",
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                     >
                       live website <FaLink />
                     </button>
 
                     <button
-                      href="https://github.com/yourusername/yourproject"
-                      target="_blank"
-                      className="flex w-full items-center justify-end gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center justify-end gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open(
+                          "https://github.com/bricesuazo/kabsu.me",
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                     >
                       github repo <ImGithub />
                     </button>
@@ -139,7 +155,7 @@ const projects = () => {
                     alt=""
                   />
                 </div>
-                <div className="z-20 flex-col px-4">
+                <div className="z-20 mb-2 flex-col px-4">
                   <CardHeader>
                     <CardTitle>Root finding method</CardTitle>
                     <CardDescription className="text-muted-foreground">
@@ -154,19 +170,27 @@ const projects = () => {
 
                   <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
                     <button
-                      href="https://example.com"
-                      target="_blank"
-                      className="flex w-full items-center gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open(
+                          "https://cosc110-g3.kevinnuesca.me/",
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                     >
                       live website <FaLink />
                     </button>
 
                     <button
-                      href="https://github.com/yourusername/yourproject"
-                      target="_blank"
-                      className="flex w-full items-center justify-end gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center justify-end gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open(
+                          "https://github.com/tfudoinkebs/cosc110-g3",
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                     >
                       github repo <ImGithub />
                     </button>
@@ -189,7 +213,7 @@ const projects = () => {
                     alt=""
                   />
                 </div>
-                <div className="z-20 flex-col px-4">
+                <div className="z-20 mb-2 flex-col px-4">
                   <CardHeader>
                     <CardTitle>Versatool</CardTitle>
                     <CardDescription className="text-muted-foreground">
@@ -204,19 +228,19 @@ const projects = () => {
 
                   <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
                     <button
-                      href="https://example.com"
-                      target="_blank"
-                      className="flex w-full items-center gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open("", "_blank", "noopener,noreferrer")
+                      }
                     >
                       live website <FaLink />
                     </button>
 
                     <button
-                      href="https://github.com/yourusername/yourproject"
-                      target="_blank"
-                      className="flex w-full items-center justify-end gap-2 hover:underline"
-                      rel="noopener noreferrer"
+                      className="flex w-fit items-center justify-end gap-2 whitespace-nowrap hover:underline"
+                      onClick={() =>
+                        window.open("", "_blank", "noopener,noreferrer")
+                      }
                     >
                       github repo <ImGithub />
                     </button>

@@ -22,6 +22,8 @@ const buttonVariants = cva(
         send: "bg-teal-500 text-primary-foreground hover:bg-teal-500/90",
         contact:
           "w-full text-center justify-start bg-background hover:bg-background/90",
+        contactButton:
+          "flex justify-start gap-4 font-bold lg:border-2 hover:bg-accent hover:text-accent-foreground lg:border-accent",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 import RetroGrid from "@/components/magicui/retro-grid";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { IoSend } from "react-icons/io5";
 import BlurIn from "@/components/magicui/blur-in";
 import BlurFade from "@/components/magicui/blur-fade";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 
 const Contacts = () => {
@@ -29,7 +22,7 @@ const Contacts = () => {
   };
 
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-start overflow-hidden bg-background px-4">
+    <div className="relative flex h-full w-full flex-col items-center justify-start overflow-hidden bg-background px-8">
       <BlurFade
         delay={0.25}
         inView
@@ -46,7 +39,7 @@ const Contacts = () => {
         </p>
       </BlurFade>
 
-      <Card className="z-10 mb-20 w-full border-2 bg-background p-4 md:w-[500px]">
+      <Card className="z-10 mb-20 grid w-full grid-cols-1 border-2 bg-background p-4 px-4 md:w-3/5 lg:grid-cols-2">
         <CardContent>
           <form>
             <div className="grid w-full items-center gap-4">
@@ -56,7 +49,7 @@ const Contacts = () => {
                 </Label>
                 <Input id="name" placeholder="Name" />
               </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
+              <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="email">
                   Email <span className="text-red-500">*</span>
                 </Label>
@@ -78,38 +71,74 @@ const Contacts = () => {
               </div>
             </div>
           </form>
+          <CardFooter className="mt-4 flex justify-end">
+            <Button
+              variant="send"
+              size="send"
+              className="flex gap-2 text-sm font-bold text-white"
+            >
+              Send <IoSend />
+            </Button>
+          </CardFooter>
         </CardContent>
-        <CardFooter className="flex justify-end">
-          <Button
-            variant="send"
-            size="send"
-            className="flex gap-2 text-sm font-bold text-white"
-          >
-            Send <IoSend />
-          </Button>
-        </CardFooter>
 
-        <h4 className="flex w-full justify-center py-4 text-center">
-          or contact me at...
-        </h4>
+        <CardContent>
+          <h4 className="flex w-full justify-center py-4 text-center">
+            or contact me at...
+          </h4>
 
-        <div className="flex justify-center gap-4 text-center">
-          <button className="hover:scale-105 hover:text-teal-500">
-            <FaFacebook />
-          </button>
-          <button className="hover:scale-105 hover:text-teal-500">
-            <FaInstagram />
-          </button>
-          <button className="hover:scale-105 hover:text-teal-500">
-            <FaTwitter />
-          </button>
-          <button className="hover:scale-105 hover:text-teal-500">
-            <FaLinkedin />
-          </button>
-          <button className="hover:scale-105 hover:text-teal-500">
-            <BiLogoGmail />
-          </button>
-        </div>
+          <div className="flex justify-center gap-4 text-center lg:flex-col">
+            <Button
+              variant="contactButton"
+              onClick={() =>
+                window.open(
+                  "https://www.facebook.com/wtf.kevs/",
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }
+            >
+              <FaFacebook className="size-6 text-teal-500" />
+              <h2 className="hidden lg:block">Facebook</h2>
+            </Button>
+            <Button
+              variant="contactButton"
+              onClick={() =>
+                window.open(
+                  "https://www.instagram.com/tfudoinkebs/",
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }
+            >
+              <FaInstagram className="size-6 text-teal-500" />
+              <h2 className="hidden lg:block">Instagram</h2>
+            </Button>
+            <Button
+              variant="contactButton"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/kevin-roi-nuesca-07b756281/",
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }
+            >
+              <FaLinkedin className="size-6 text-teal-500" />
+              <h2 className="hidden lg:block">LinkedIn</h2>
+            </Button>
+            <Button
+              variant="contactButton"
+              onClick={() =>
+                (window.location.href =
+                  "mailto:nuesca.kevinroi@gmail.com?subject=Mail from your website&body=Hello there,")
+              }
+            >
+              <BiLogoGmail className="size-6 text-teal-500" />
+              <h2 className="hidden lg:block">Gmail</h2>
+            </Button>
+          </div>
+        </CardContent>
       </Card>
 
       <RetroGrid />

@@ -1,17 +1,49 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ThemeProvider } from "@/components/magicui/theme-provider";
 import Header from "./pages/header";
-import Footer from "./pages/footer";
-import Router from "./pages/landingpage/router";
+import { BrowserRouter as Router } from "react-router-dom";
+import Home from "./pages/landingpage/pages/home";
+import About from "./pages/landingpage/pages/about";
+import Projects from "./pages/landingpage/pages/projects";
+import Contacts from "./pages/landingpage/pages/contacts";
+
 const App = () => {
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactsRef = useRef(null);
+
+  const scrollToSection = (sectionRef) => {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex min-h-screen flex-col justify-between font-mono">
-        <Header />
-        <Router />
-        {/* <Footer /> */}
-      </div>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <div className="flex min-h-screen flex-col justify-between font-mono">
+          <Header
+            scrollToSection={scrollToSection}
+            homeRef={homeRef}
+            aboutRef={aboutRef}
+            projectsRef={projectsRef}
+            contactsRef={contactsRef}
+          />
+
+          <div ref={homeRef}>
+            <Home />
+          </div>
+          <div ref={aboutRef}>
+            <About />
+          </div>
+          <div ref={projectsRef}>
+            <Projects />
+          </div>
+          <div ref={contactsRef}>
+            <Contacts />
+          </div>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 };
 

@@ -14,53 +14,64 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+const Header = ({
+  scrollToSection,
+  homeRef,
+  aboutRef,
+  projectsRef,
+  contactsRef,
+}) => {
+  const iconsData = [
+    { Icon: VscHome, tooltip: "Home", ref: homeRef },
+    { Icon: SiAboutdotme, tooltip: "About", ref: aboutRef },
+    { Icon: SiOpenproject, tooltip: "Projects", ref: projectsRef },
+    { Icon: MdOutlineContactMail, tooltip: "Contacts", ref: contactsRef },
+    {
+      Icon: FaFacebook,
+      tooltip: "Facebook",
+      ref: "https://www.facebook.com/wtf.kevs/",
+    },
+    {
+      Icon: FaInstagram,
+      tooltip: "Instagram",
+      ref: "https://www.instagram.com/tfudoinkebs/",
+    },
+    {
+      Icon: FaLinkedin,
+      tooltip: "LinkedIn",
+      ref: "https://www.linkedin.com/in/kevin-roi-nuesca-07b756281/",
+    },
+    {
+      Icon: SiGmail,
+      tooltip: "Email",
+      ref: "mailto:nuesca.kevinroi@gmail.com?subject=Mail from your website&body=Hello there,",
+    },
+    { Icon: ModeToggle, tooltip: "Mode", ref: null },
+  ];
 
-const iconsData = [
-  { Icon: VscHome, tooltip: "Home" },
-  { Icon: SiAboutdotme, tooltip: "About" },
-  { Icon: SiOpenproject, tooltip: "Projects" },
-  { Icon: MdOutlineContactMail, tooltip: "Contacts" },
-  { Icon: FaFacebook, tooltip: "Facebook" },
-  { Icon: FaInstagram, tooltip: "Instagram" },
-  { Icon: FaLinkedin, tooltip: "LinkedIn" },
-  { Icon: SiGmail, tooltip: "Email" },
-  { Icon: ModeToggle, tooltip: "Mode" },
-];
-
-const Header = () => {
   return (
-    <div className="fixed z-50 mt-4 flex w-screen justify-center">
+    <div className="fixed z-50 flex w-screen md:mt-4 md:justify-center">
       <div className="flex w-fit">
         <BlurFade
           delay={0.25}
           inView
-          className="rounded-full border-2 border-teal-500 backdrop-blur-xl"
+          className="w-screen border-b-2 border-teal-500 p-2 backdrop-blur-xl md:w-full md:rounded-full md:border-2"
         >
           <Dock magnification={60} distance={100}>
-            {iconsData.map(({ Icon, tooltip }, index) => (
+            {iconsData.map(({ Icon, tooltip, ref }, index) => (
               <DockIcon key={index}>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      {/* Check if the Icon is ModeToggle and adjust rendering accordingly */}
                       {Icon === ModeToggle ? (
                         <div>
                           <Icon className="size-6" />
                         </div>
                       ) : (
-                        <Button variant="none">
+                        <Button
+                          variant="none"
+                          onClick={() => ref && scrollToSection(ref)}
+                        >
                           <Icon className="size-6 text-[#5046e6]" />
                         </Button>
                       )}

@@ -28,9 +28,8 @@ const App = () => {
             projectsRef={projectsRef}
             contactsRef={contactsRef}
           />
-
           <div ref={homeRef}>
-            <Home />
+            <Home scrollToSection={scrollToSection} aboutRef={aboutRef} />
           </div>
           <div ref={aboutRef}>
             <About />

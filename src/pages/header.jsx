@@ -3,9 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/magicui/mode-toggle";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { VscHome } from "react-icons/vsc";
-import { SiAboutdotme, SiOpenproject, SiGmail } from "react-icons/si";
+import { SiAboutdotme, SiOpenproject } from "react-icons/si";
 import { MdOutlineContactMail } from "react-icons/md";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import BlurFade from "@/components/magicui/blur-fade";
 import {
   Tooltip,

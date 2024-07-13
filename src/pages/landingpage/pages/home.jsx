@@ -8,7 +8,7 @@ import WordRotate from "@/components/magicui/word-rotate";
 import SparklesText from "@/components/magicui/sparkles-text";
 import BlurFade from "@/components/magicui/blur-fade";
 
-const home = () => {
+const Home = ({ scrollToSection, aboutRef }) => {
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center overflow-hidden px-4 md:px-20">
       <BlurFade delay={0.25} inView>
@@ -94,7 +94,7 @@ const home = () => {
             </p>
           </BoxReveal>
           <BoxReveal boxColor={"#5046e6"} duration={2}>
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => scrollToSection(aboutRef)}>
               <SparklesText
                 text="Explore"
                 className={"text-sm font-semibold"}
@@ -118,4 +118,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

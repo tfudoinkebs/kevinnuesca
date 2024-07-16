@@ -10,8 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FaLink } from "react-icons/fa6";
-import { ImGithub } from "react-icons/im";
 import BlurFade from "@/components/magicui/blur-fade";
 
 const projectList = [
@@ -100,36 +98,6 @@ const Projects = () => {
                         </Badge>
                       ))}
                     </CardContent>
-
-                    <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
-                      <button
-                        className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
-                        onClick={() =>
-                          window.open(
-                            project.liveLink,
-                            "_blank",
-                            "noopener,noreferrer",
-                          )
-                        }
-                        disabled={!project.liveLink}
-                      >
-                        live website <FaLink />
-                      </button>
-
-                      <button
-                        className="flex w-fit items-center justify-end gap-2 whitespace-nowrap hover:underline"
-                        onClick={() =>
-                          window.open(
-                            project.repoLink,
-                            "_blank",
-                            "noopener,noreferrer",
-                          )
-                        }
-                        disabled={!project.repoLink}
-                      >
-                        github repo <ImGithub />
-                      </button>
-                    </CardFooter>
                   </div>
                 </ShineBorder>
               </div>

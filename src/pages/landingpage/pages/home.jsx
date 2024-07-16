@@ -58,6 +58,7 @@ const Home = ({ scrollToSection, aboutRef }) => {
         <div className="mt-20 flex flex-col items-center gap-4 text-center delay-1000 md:items-start md:text-left">
           <BoxReveal boxColor={"#5046e6"} duration={2}>
             <WordRotate
+              duration={3000}
               className="text-2xl font-black text-[#5046e6] md:text-4xl"
               words={["UI/UX Designer", "Frontend Developer"]}
             />

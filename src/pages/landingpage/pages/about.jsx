@@ -11,6 +11,7 @@ const about = () => {
   const slugs = [
     "javascript",
     "java",
+    "python",
     "react",
     "html5",
     "css3",
@@ -24,6 +25,10 @@ const about = () => {
     "gitlab",
     "visualstudiocode",
     "figma",
+    "photoshop",
+    "illustrator",
+    "microsoftoffice",
+    "tailwindcss",
   ];
 
   return (
@@ -88,7 +93,7 @@ const about = () => {
       <BlurFade delay={0.25 * 4} inView>
         <IconCloudWrapper slugs={slugs} />
       </BlurFade>
-      
+
       <MarqueeComponent />
 
       <DotPattern

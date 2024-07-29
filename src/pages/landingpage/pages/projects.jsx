@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BlurFade from "@/components/magicui/blur-fade";
+import { FaLink } from "react-icons/fa";
+import { ImGithub } from "react-icons/im";
 
 const projectList = [
   {
@@ -18,7 +20,7 @@ const projectList = [
     description:
       "An Online Interactive Campus Tour for Cavite State University Don Severino Delas Alas Campus",
     image: "./adventura.png",
-    badges: ["Badge1", "Badge2"],
+    badges: ["React", "MongoDB", "OpenSeaDragon", "View360"],
     liveLink: "https://adventura360.kabsu.me/",
     repoLink: "https://github.com/marksapon/Adventura360",
   },
@@ -27,7 +29,7 @@ const projectList = [
     description:
       "A social media platform exclusive only for Cavite State University students, faculty, and alumni.",
     image: "./kabsu me.png",
-    badges: ["Badge1", "Badge2"],
+    badges: ["Next.js", "Supabase", "TailwindCSS", "Vercel"],
     liveLink: "https://kabsu.me/",
     repoLink: "https://github.com/bricesuazo/kabsu.me",
   },
@@ -36,7 +38,7 @@ const projectList = [
     description:
       "Root finding method calculator for COSC 110. Methods are Bisection, Secant, Newton Rhapson, and False position.",
     image: "./root finding.png",
-    badges: ["Badge1", "Badge2"],
+    badges: ["React", "TailwindCSS", "Vercel"],
     liveLink: "https://cosc110-g3.kevinnuesca.me/",
     repoLink: "https://github.com/tfudoinkebs/cosc110-g3",
   },
@@ -45,7 +47,7 @@ const projectList = [
     description:
       "Root finding method calculator for COSC 110. Methods are Bisection, Secant, Newton Rhapson, and False position.",
     image: "./root finding.png",
-    badges: ["Badge1", "Badge2"],
+    badges: ["React", "TailwindCSS", "Vercel"],
     liveLink: "",
     repoLink: "",
   },
@@ -98,6 +100,35 @@ const Projects = () => {
                         </Badge>
                       ))}
                     </CardContent>
+                    <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
+                      <button
+                        className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
+                        onClick={() =>
+                          window.open(
+                            project.liveLink,
+                            "_blank",
+                            "noopener,noreferrer",
+                          )
+                        }
+                        disabled={!project.liveLink}
+                      >
+                        live website <FaLink />
+                      </button>
+
+                      <button
+                        className="flex w-fit items-center justify-end gap-2 whitespace-nowrap hover:underline"
+                        onClick={() =>
+                          window.open(
+                            project.repoLink,
+                            "_blank",
+                            "noopener,noreferrer",
+                          )
+                        }
+                        disabled={!project.repoLink}
+                      >
+                        github repo <ImGithub />
+                      </button>
+                    </CardFooter>
                   </div>
                 </ShineBorder>
               </div>

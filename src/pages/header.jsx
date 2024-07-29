@@ -51,7 +51,7 @@ const Header = ({
                           variant="none"
                           onClick={() => ref && scrollToSection(ref)}
                         >
-                          <Icon className="size-6 text-[#5046e6]" />
+                          <Icon className="size-6 text-black dark:text-white" />
                         </Button>
                       )}
                     </TooltipTrigger>

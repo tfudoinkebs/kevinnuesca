@@ -15,8 +15,14 @@ import {
 import { IoLogoJavascript } from "react-icons/io5";
 import { IoLogoCss3 } from "react-icons/io";
 import { RiNextjsFill, RiSupabaseFill } from "react-icons/ri";
-import { SiVercel } from "react-icons/si";
+import {
+  SiVercel,
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiTailwindcss,
+} from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
+import { TbBrandOffice } from "react-icons/tb";
 
 const techIcons = {
   JavaScript: <IoLogoJavascript />,
@@ -34,6 +40,10 @@ const techIcons = {
   GitLab: <FaGitlab />,
   VSCode: <VscVscode />,
   Figma: <FaFigma />,
+  Photoshop: <SiAdobephotoshop />,
+  Illustrator: <SiAdobeillustrator />,
+  MicrosoftOffice: <TbBrandOffice />,
+  TailwindCSS: <SiTailwindcss />,
 };
 
 const MarqueeComponent = () => {
@@ -113,8 +123,27 @@ const MarqueeComponent = () => {
       body: "Figma is a web-based graphics editing and user interface design app.",
       icon: techIcons["Figma"],
     },
+    {
+      name: "Photoshop",
+      body: "Adobe Photoshop is a raster graphics editor.",
+      icon: techIcons["Photoshop"],
+    },
+    {
+      name: "Illustrator",
+      body: "Adobe Illustrator is a vector graphics editor.",
+      icon: techIcons["Illustrator"],
+    },
+    {
+      name: "Microsoft Office",
+      body: "Microsoft Office is a suite of productivity software.",
+      icon: techIcons["Microsoft Office"],
+    },
+    {
+      name: "Tailwind CSS",
+      body: "Tailwind CSS is a utility-first CSS framework.",
+      icon: techIcons["Tailwind CSS"],
+    },
   ];
-
   const firstRow = reviews.slice(0, reviews.length / 2);
   const secondRow = reviews.slice(reviews.length / 2);
 

@@ -45,7 +45,7 @@ const Home = ({ scrollToSection, aboutRef }) => {
             </span>{" "}
             and graduated in{" "}
           </span>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-sm text-muted-foreground md:text-lg">
             <span className="font-semibold text-green-500">
               Cavite State University Don Severino Delas Alas
             </span>{" "}

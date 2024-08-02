@@ -13,7 +13,6 @@ import { BiLogoGmail } from "react-icons/bi";
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -27,6 +26,7 @@ const Contacts = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
   const handleChange = (event) => {
     const inputText = event.target.value;
@@ -35,11 +35,87 @@ const Contacts = () => {
     }
   };
 
+  const validateEmail = (email) => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+  };
+
+  const handleEmailChange = (event) => {
+    const emailValue = event.target.value;
+    setEmail(emailValue);
+    if (!validateEmail(emailValue)) {
+      setEmailError(
+        "Please enter a valid email address (gmail.com, .edu.ph, .tech)",
+      );
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const contactButtons = [
+    {
+      href: "https://www.facebook.com/wtf.kevs/",
+      label: "Facebook",
+      icon: <FaFacebook className="size-6" />,
+      isMail: false,
+    },
+    {
+      href: "https://www.instagram.com/tfudoinkebs/",
+      label: "Instagram",
+      icon: <FaInstagram className="size-6" />,
+      isMail: false,
+    },
+    {
+      href: "https://www.linkedin.com/in/kevin-roi-nuesca-07b756281/",
+      label: "LinkedIn",
+      icon: <FaLinkedin className="size-6" />,
+      isMail: false,
+    },
+    {
+      href: "mailto:nuesca.kevinroi@gmail.com?subject=Mail from your website&body=Hello there,",
+      label: "Gmail",
+      icon: <BiLogoGmail className="size-6" />,
+      isMail: true,
+    },
+  ];
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
     const payload = {
-      content: `New message from ${name} (${email}): ${message}`,
+      username: "Portfolio",
+      embeds: [
+        {
+          title: "New Contact Form Submission",
+          description: "You have received a new message from the contact form.",
+          color: 0x00ff00,
+          fields: [
+            {
+              name: "Name",
+              value: name,
+              inline: true,
+            },
+            {
+              name: "Email",
+              value: email,
+              inline: true,
+            },
+            {
+              name: "Message",
+              value: message,
+            },
+          ],
+          footer: {
+            text: "Recieved at",
+          },
+          timestamp: new Date(),
+        },
+      ],
     };
 
     const webhookUrl =
@@ -111,8 +187,11 @@ const Contacts = () => {
                   id="email"
                   placeholder="Email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                 />
+                {emailError && (
+                  <p className="text-xs text-red-500">{emailError}</p>
+                )}
               </div>
               <div className="grid w-full gap-1.5">
                 <Label htmlFor="message-2">
@@ -137,7 +216,7 @@ const Contacts = () => {
                     variant="send"
                     size="send"
                     className="flex gap-2 text-sm font-bold text-white"
-                    disabled={(!message, !name, !email)}
+                    disabled={!name || !email || !message || emailError}
                   >
                     Send <IoSend />
                   </Button>
@@ -166,55 +245,22 @@ const Contacts = () => {
           </h4>
 
           <div className="flex justify-center gap-4 text-center lg:flex-col">
-            <Button
-              variant="contactButton"
-              onClick={() =>
-                window.open(
-                  "https://www.facebook.com/wtf.kevs/",
-                  "_blank",
-                  "noopener,noreferrer",
-                )
-              }
-            >
-              <FaFacebook className="size-6 text-teal-500" />
-              <h2 className="hidden lg:block">Facebook</h2>
-            </Button>
-            <Button
-              variant="contactButton"
-              onClick={() =>
-                window.open(
-                  "https://www.instagram.com/tfudoinkebs/",
-                  "_blank",
-                  "noopener,noreferrer",
-                )
-              }
-            >
-              <FaInstagram className="size-6 text-teal-500" />
-              <h2 className="hidden lg:block">Instagram</h2>
-            </Button>
-            <Button
-              variant="contactButton"
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/in/kevin-roi-nuesca-07b756281/",
-                  "_blank",
-                  "noopener,noreferrer",
-                )
-              }
-            >
-              <FaLinkedin className="size-6 text-teal-500" />
-              <h2 className="hidden lg:block">LinkedIn</h2>
-            </Button>
-            <Button
-              variant="contactButton"
-              onClick={() =>
-                (window.location.href =
-                  "mailto:nuesca.kevinroi@gmail.com?subject=Mail from your website&body=Hello there,")
-              }
-            >
-              <BiLogoGmail className="size-6 text-teal-500" />
-              <h2 className="hidden lg:block">Gmail</h2>
-            </Button>
+            {contactButtons.map((button, index) => (
+              <Button
+                key={index}
+                variant="contactButton"
+                onClick={() => {
+                  if (button.isMail) {
+                    window.location.href = button.href;
+                  } else {
+                    window.open(button.href, "_blank", "noopener,noreferrer");
+                  }
+                }}
+              >
+                {button.icon}
+                <h2 className="hidden lg:block">{button.label}</h2>
+              </Button>
+            ))}
           </div>
         </CardContent>
       </Card>

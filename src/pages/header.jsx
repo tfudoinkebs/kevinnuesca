@@ -34,9 +34,9 @@ const Header = ({
         <BlurFade
           delay={0.25}
           inView
-          className="w-screen border-b-2 border-teal-500 p-2 backdrop-blur-xl md:w-full md:rounded-full md:border-2 md:p-0"
+          className="w-screen border-b-2 border-black p-2 backdrop-blur-xl md:w-full md:rounded-full md:border-2 md:p-0"
         >
-          <Dock magnification={60} distance={100}>
+          <Dock magnification={60} distance={100} direction="middle">
             {iconsData.map(({ Icon, tooltip, ref }, index) => (
               <DockIcon key={index}>
                 <TooltipProvider>

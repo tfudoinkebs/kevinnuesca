@@ -29,7 +29,11 @@ const App = () => {
             contactsRef={contactsRef}
           />
           <div ref={homeRef}>
-            <Home scrollToSection={scrollToSection} aboutRef={aboutRef} />
+            <Home
+              scrollToSection={scrollToSection}
+              aboutRef={aboutRef}
+              contactsRef={contactsRef}
+            />
           </div>
           <div ref={aboutRef}>
             <About />

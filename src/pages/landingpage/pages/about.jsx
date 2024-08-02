@@ -3,11 +3,14 @@ import BlurIn from "@/components/magicui/blur-in";
 import TypingAnimation from "@/components/magicui/typing-animation";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
-import IconCloudWrapper from "@/components/magicui/icon-cloud-component";
 import MarqueeComponent from "@/components/magicui/marqueeComponent";
 import BlurFade from "@/components/magicui/blur-fade";
+import { useTheme } from "@/components/magicui/theme-provider";
+import { Button } from "@/components/ui/button";
 
-const about = () => {
+const About = () => {
+  const { theme } = useTheme();
+
   const slugs = [
     "javascript",
     "java",
@@ -25,51 +28,50 @@ const about = () => {
     "gitlab",
     "visualstudiocode",
     "figma",
-    "photoshop",
-    "illustrator",
+    // "photoshop",
+    // "illustrator",
     "microsoftoffice",
     "tailwindcss",
   ];
 
   return (
     <div className="relative flex h-full w-full flex-col items-center justify-start overflow-hidden">
-      <div className="flex w-full flex-col items-center justify-start pt-20">
+      <div className="z-10 flex w-full flex-col items-center justify-start pt-20">
         <BlurFade delay={0.25} inView>
           <BlurIn
             word="About me"
-            className="font-bold text-black dark:text-white"
+            className="pb-4 font-bold text-black dark:text-white"
             duration={2}
-          />
-        </BlurFade>
-
-        <BlurFade delay={0.25 * 2} inView>
-          <TypingAnimation
-            className="text-base font-normal text-black dark:text-white"
-            text="get to know me more!"
-            duration={10}
           />
         </BlurFade>
 
         <BlurFade
           delay={0.25 * 2}
           inView
-          className={"flex w-full justify-center text-center"}
+          className={
+            "flex w-full flex-col items-center justify-center gap-4 text-center md:flex-row"
+          }
         >
-          <p className="w-full px-4 pt-8 text-center md:w-3/4">
-            i'm a passionate{" "}
-            <span className="text-teal-500">computer science</span> student at{" "}
-            <span className="text-teal-500">
-              cavite state university don severino delas alas campus
-            </span>
-            . i have passion for{" "}
-            <span className="text-teal-500">
-              coding, learning, and building
-            </span>{" "}
-            . my hobbies are reading random stuff such as webtoon, manga, or
+          <p className="w-full p-4 text-center md:w-1/2">
+            i'm a passionate computer science student at cavite state university
+            don severino delas alas campus. i have passion for coding, learning,
+            and building. <br /> <br />i have experience as a front-end
+            developer and UI/UX designer. my skills include creating responsive
+            and user-friendly interfaces, developing web applications, and
+            enhancing user experience through thoughtful design. <br />
+            <br />
+            my hobbies are reading random stuff such as webtoon, manga, or
             manwha. i also love watching anime and playing random games. i still
             have much more to learn, and i'm always open to exploring new
-            opportunities."
+            opportunities.
           </p>
+          <div className="w-fit p-4">
+            <img
+              src={theme === "dark" ? "./me-dark.jpg" : "./me-white.jpg"}
+              alt="Kevin Roi Nuesca Portrait"
+              className="aspect-square size-96 rounded-md object-cover transition-all duration-500"
+            />
+          </div>
         </BlurFade>
 
         <BlurFade
@@ -90,19 +92,15 @@ const about = () => {
         </BlurFade>
       </div>
 
-      <BlurFade delay={0.25 * 4} inView>
-        <IconCloudWrapper slugs={slugs} />
-      </BlurFade>
-
       <MarqueeComponent />
 
       <DotPattern
         className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,gray,transparent)]",
+          "z-0 [mask-image:radial-gradient(500px_circle_at_center,gray,transparent)]",
         )}
       />
     </div>
   );
 };
 
-export default about;
+export default About;

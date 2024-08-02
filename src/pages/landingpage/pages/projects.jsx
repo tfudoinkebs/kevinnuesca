@@ -20,7 +20,7 @@ const projectList = [
     description:
       "An Online Interactive Campus Tour for Cavite State University Don Severino Delas Alas Campus",
     image: "./adventura.png",
-    badges: ["React", "MongoDB", "OpenSeaDragon", "View360"],
+    badges: ["MERN", "OpenSeaDragon", "View360"],
     liveLink: "https://adventura360.kabsu.me/",
     repoLink: "https://github.com/marksapon/Adventura360",
   },
@@ -29,7 +29,7 @@ const projectList = [
     description:
       "A social media platform exclusive only for Cavite State University students, faculty, and alumni.",
     image: "./kabsu me.png",
-    badges: ["Next.js", "Supabase", "TailwindCSS", "Vercel"],
+    badges: ["Next.js", "Supabase", "Vercel"],
     liveLink: "https://kabsu.me/",
     repoLink: "https://github.com/bricesuazo/kabsu.me",
   },
@@ -42,15 +42,15 @@ const projectList = [
     liveLink: "https://cosc110-g3.kevinnuesca.me/",
     repoLink: "https://github.com/tfudoinkebs/cosc110-g3",
   },
-  {
-    title: "Versatool",
-    description:
-      "Root finding method calculator for COSC 110. Methods are Bisection, Secant, Newton Rhapson, and False position.",
-    image: "./root finding.png",
-    badges: ["React", "TailwindCSS", "Vercel"],
-    liveLink: "",
-    repoLink: "",
-  },
+  // {
+  //   title: "Versatool",
+  //   description:
+  //     "Root finding method calculator for COSC 110. Methods are Bisection, Secant, Newton Rhapson, and False position.",
+  //   image: "./root finding.png",
+  //   badges: ["React", "TailwindCSS", "Vercel"],
+  //   liveLink: "",
+  //   repoLink: "",
+  // },
 ];
 
 const Projects = () => {
@@ -65,7 +65,7 @@ const Projects = () => {
           />
         </BlurFade>
 
-        <div className="grid w-full grid-cols-1 grid-rows-1 items-center justify-center gap-4 px-8 md:w-3/4 lg:grid-cols-2 xl:w-3/5">
+        <div className="grid w-full grid-cols-1 grid-rows-1 items-center justify-center gap-8 px-8 md:w-3/4 xl:w-3/5">
           {projectList.map((project, index) => (
             <BlurFade
               key={project.title}
@@ -100,7 +100,7 @@ const Projects = () => {
                         </Badge>
                       ))}
                     </CardContent>
-                    <CardFooter className="mt-2 flex w-full items-center justify-between text-xs">
+                    <CardFooter className="mt-2 flex w-full items-center justify-between text-sm">
                       <button
                         className="flex w-fit items-center gap-2 whitespace-nowrap hover:underline"
                         onClick={() =>
@@ -136,7 +136,7 @@ const Projects = () => {
           ))}
         </div>
       </div>
-      <Ripple />
+      {/* <Ripple /> */}
     </div>
   );
 };

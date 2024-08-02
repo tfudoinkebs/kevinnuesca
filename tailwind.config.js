@@ -58,6 +58,10 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        updown: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -103,6 +107,7 @@ module.exports = {
         },
       },
       animation: {
+        updown: "updown 1s infinite",
         meteor: "meteor 5s linear infinite",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         "accordion-down": "accordion-down 0.2s ease-out",

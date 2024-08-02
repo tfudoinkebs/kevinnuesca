@@ -50,8 +50,11 @@ const Home = ({ scrollToSection, aboutRef, contactsRef }) => {
               developing web applications that delight users.
             </span>
           </div>
-          <div className="flex items-center justify-center gap-4">
-            <Button onClick={() => scrollToSection(contactsRef)}>
+          <div className="flex items-center justify-center gap-2 md:gap-4">
+            <Button
+              onClick={() => scrollToSection(contactsRef)}
+              className="px-2 py-1"
+            >
               <MdOutlineMailOutline className="mr-2" /> Contact me
             </Button>
             <Button
@@ -59,6 +62,7 @@ const Home = ({ scrollToSection, aboutRef, contactsRef }) => {
               onClick={() =>
                 window.open("/nuesca-cv.pdf", "_blank", "noopener,noreferrer")
               }
+              className="px-2 py-1"
             >
               <FaRegFilePdf className="mr-2" /> CV/Resume
             </Button>
@@ -71,6 +75,7 @@ const Home = ({ scrollToSection, aboutRef, contactsRef }) => {
                   "noopener,noreferrer",
                 )
               }
+              className="px-2 py-1"
             >
               <FaGithub className="mr-2" /> Github
             </Button>

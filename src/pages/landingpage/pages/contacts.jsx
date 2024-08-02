@@ -44,9 +44,7 @@ const Contacts = () => {
     const emailValue = event.target.value;
     setEmail(emailValue);
     if (!validateEmail(emailValue)) {
-      setEmailError(
-        "Please enter a valid email address (gmail.com, .edu.ph, .tech)",
-      );
+      setEmailError("Please enter a valid email address");
     } else {
       setEmailError("");
     }

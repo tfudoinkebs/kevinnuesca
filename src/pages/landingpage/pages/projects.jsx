@@ -16,6 +16,24 @@ import { ImGithub } from "react-icons/im";
 
 const projectList = [
   {
+    title: "kabsu.me",
+    description:
+      "A social media platform exclusive only for Cavite State University students, faculty, and alumni.",
+    image: "./kabsu me v2.png",
+    badges: ["Next.js", "Supabase", "Vercel"],
+    liveLink: "https://kabsu.me/",
+    repoLink: "https://github.com/bricesuazo/kabsu.me",
+  },
+  {
+    title: "kabsu.me v1",
+    description:
+      "A social media platform exclusive only for Cavite State University students, faculty, and alumni.",
+    image: "./kabsu me v1.png",
+    badges: ["Next.js", "Supabase", "Vercel"],
+    liveLink: "https://v1.kabsu.me/",
+    repoLink: "https://github.com/bricesuazo/kabsu.me",
+  },
+  {
     title: "Adventura 360",
     description:
       "An Online Interactive Campus Tour for Cavite State University Don Severino Delas Alas Campus",
@@ -25,32 +43,14 @@ const projectList = [
     repoLink: "https://github.com/marksapon/Adventura360",
   },
   {
-    title: "kabsu.me",
-    description:
-      "A social media platform exclusive only for Cavite State University students, faculty, and alumni.",
-    image: "./kabsu me.png",
-    badges: ["Next.js", "Supabase", "Vercel"],
-    liveLink: "https://kabsu.me/",
-    repoLink: "https://github.com/bricesuazo/kabsu.me",
-  },
-  {
     title: "Root finding method",
     description:
-      "Root finding method calculator for COSC 110. Methods are Bisection, Secant, Newton Rhapson, and False position.",
+      "Bisection, Secant, Newton Rhapson, and False position Root finding method calculator",
     image: "./root finding.png",
     badges: ["React", "TailwindCSS", "Vercel"],
     liveLink: "https://cosc110-g3.kevinnuesca.me/",
     repoLink: "https://github.com/tfudoinkebs/cosc110-g3",
   },
-  // {
-  //   title: "Versatool",
-  //   description:
-  //     "Root finding method calculator for COSC 110. Methods are Bisection, Secant, Newton Rhapson, and False position.",
-  //   image: "./root finding.png",
-  //   badges: ["React", "TailwindCSS", "Vercel"],
-  //   liveLink: "",
-  //   repoLink: "",
-  // },
 ];
 
 const Projects = () => {
@@ -65,7 +65,7 @@ const Projects = () => {
           />
         </BlurFade>
 
-        <div className="grid w-full grid-cols-1 grid-rows-1 items-center justify-center gap-8 px-8 md:w-3/4 xl:w-3/5">
+        <div className="grid w-full grid-cols-1 grid-rows-1 items-center justify-center gap-8 px-8 md:w-3/4 lg:grid-cols-2 xl:w-3/5">
           {projectList.map((project, index) => (
             <BlurFade
               key={project.title}
